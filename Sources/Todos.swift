@@ -24,6 +24,8 @@ struct Todos: AsyncParsableCommand {
             "Hello\n"
         }
         
+        TodoController(repository: TodoMemoryRepository()).addRoutes(to: router.group("todos"))
+        
         let app = Application(
             router: router,
             configuration: .init(address: .hostname(self.hostname, port: self.port)),
